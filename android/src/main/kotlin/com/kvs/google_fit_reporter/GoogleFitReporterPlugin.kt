@@ -143,7 +143,7 @@ class GoogleFitReporterPlugin : FlutterPlugin, MethodCallHandler,
         result: Result
     ) {
         try {
-            val type = call.argument("type") as? String
+            val type = call.argument("aggregateType") as? String
             val startTime = call.argument("startTime") as? Long
             val endTime = call.argument("endTime") as? Long
             if (type != null && endTime != null && startTime != null) {
@@ -170,7 +170,7 @@ class GoogleFitReporterPlugin : FlutterPlugin, MethodCallHandler,
         result: Result
     ) {
         try {
-            val type = call.argument("type") as? String
+            val type = call.argument("healthType") as? String
             val startTime = call.argument("startTime") as? Long
             val endTime = call.argument("endTime") as? Long
             if (type != null && endTime != null && startTime != null) {
@@ -191,7 +191,7 @@ class GoogleFitReporterPlugin : FlutterPlugin, MethodCallHandler,
         result: Result
     ) {
         try {
-            val payload = call.argument("payload") as? String
+            val payload = call.argument("insertResult") as? String
             if (payload != null) {
                 val insertResult = InsertResult.createFrom(payload)
                 val isInserted = reporter.writer.insert(insertResult)
@@ -210,7 +210,7 @@ class GoogleFitReporterPlugin : FlutterPlugin, MethodCallHandler,
         result: Result
     ) {
         try {
-            val payload = call.argument("payload") as? String
+            val payload = call.argument("insertResult") as? String
             val startTime = call.argument("startTime") as? Long
             val endTime = call.argument("endTime") as? Long
             if (payload != null && startTime != null && endTime != null) {
@@ -231,7 +231,7 @@ class GoogleFitReporterPlugin : FlutterPlugin, MethodCallHandler,
         result: Result
     ) {
         try {
-            val type = call.argument("type") as? String
+            val type = call.argument("detailType") as? String
             val startTime = call.argument("startTime") as? Long
             val endTime = call.argument("endTime") as? Long
             if (type != null && startTime != null && endTime != null) {
